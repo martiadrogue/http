@@ -8,7 +8,7 @@ use MartiAdrogue\Http\UriComponent\Scheme;
 use MartiAdrogue\Http\UriComponent\Context;
 
 /**
- * A sheme MUST be in lowercase.
+ * A scheme MUST be in lowercase.
  *
  * @covers MartiAdrogue\Http\UriComponent\Scheme::<!public>
  */
@@ -27,7 +27,7 @@ class SchemeTest extends PHPUnit_Framework_TestCase
      * @dataProvider additionScheme
      * @covers MartiAdrogue\Http\UriComponent\Scheme::__toString
      */
-    public function shouldReturnCurrentSheme($expected, $scheme)
+    public function shouldReturnCurrentScheme($expected, $scheme)
     {
         $this->assertEquals($expected, $scheme->__toString(), 'Scheme with a value ' . $scheme . ' must return the same value.');
     }
