@@ -4,7 +4,7 @@ namespace MartiAdrogue\Http;
 
 use MartiAdrogue\Http\Exception\MissingRequestMetaVariableException;
 use MartiAdrogue\Http\Behaviour\Messageable;
-use MartiAdrogue\Http\Behaviour\Streameable;
+use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 
 class Message implements Messageable
@@ -14,7 +14,7 @@ class Message implements Messageable
     private $headers;
     private $body;
 
-    public function __construct($protocolVersion, $version, array $headers, Streameable $body)
+    public function __construct($protocolVersion, $version, array $headers, StreamInterface $body)
     {
         $this->protocolVersion = $protocolVersion;
         $this->version = $version;
@@ -71,7 +71,7 @@ class Message implements Messageable
     {
         return $this->body;
     }
-    public function withBody(Streameable $body)
+    public function withBody(StreamInterface $body)
     {
         return $body;
     }
