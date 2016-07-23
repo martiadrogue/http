@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.2/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         forceCoversAnnotation="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="martiadrogue Test Suite">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-crap4j" target="build/logs/crap4j.xml"/>
+        <log type="coverage-xml" target="build/logs/coverage"/>
+        <log type="coverage-html" target="build/logs/coverage" charset="UTF-8" yui="true" highlight="true"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="junit" target="build/logs/junit.xml"/>
+        <log type="testdox-html" target="build/testdox/index.html"/>
+    </logging>
+</phpunit>
