@@ -4,13 +4,13 @@ namespace MartiAdrogue\Http;
 
 use PHPUnit_Framework_TestCase;
 use MartiAdrogue\Http\Uri;
-use MartiAdrogue\Http\UriComponent\Scheme;
-use MartiAdrogue\Http\UriComponent\Context;
+use MartiAdrogue\Http\Component\Uri\Scheme;
+use MartiAdrogue\Http\Component\Uri\Context;
 
 /**
  * A scheme MUST be in lowercase.
  *
- * @covers MartiAdrogue\Http\UriComponent\Scheme::<!public>
+ * @covers MartiAdrogue\Http\Component\Uri\Scheme::<!public>
  */
 class SchemeTest extends PHPUnit_Framework_TestCase
 {
@@ -25,7 +25,7 @@ class SchemeTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @dataProvider additionScheme
-     * @covers MartiAdrogue\Http\UriComponent\Scheme::__toString
+     * @covers MartiAdrogue\Http\Component\Uri\Scheme::__toString
      */
     public function shouldReturnCurrentScheme($expected, $scheme)
     {

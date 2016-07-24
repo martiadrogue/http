@@ -1,6 +1,6 @@
 <?php
 
-namespace MartiAdrogue\Http\UriComponent;
+namespace MartiAdrogue\Http\Component\Uri;
 
 abstract class Context
 {

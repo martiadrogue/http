@@ -4,11 +4,11 @@ namespace MartiAdrogue\Http;
 
 use MartiAdrogue\Http\Behaviour\UniformResourceIdentifiable;
 use MartiAdrogue\Http\Exception\InvalidUriException;
-use MartiAdrogue\Http\UriComponent\Context;
-use MartiAdrogue\Http\UriComponent\Port;
-use MartiAdrogue\Http\UriComponent\Scheme;
-use MartiAdrogue\Http\UriComponent\UserInfo;
-use MartiAdrogue\Http\UriComponent\UserInfoWithAuthentication;
+use MartiAdrogue\Http\Component\Uri\Context;
+use MartiAdrogue\Http\Component\Uri\Port;
+use MartiAdrogue\Http\Component\Uri\Scheme;
+use MartiAdrogue\Http\Component\Uri\UserInfo;
+use MartiAdrogue\Http\Component\Uri\UserInfoWithAuthentication;
 
 class Uri implements UniformResourceIdentifiable
 {

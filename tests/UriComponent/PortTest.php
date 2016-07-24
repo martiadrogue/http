@@ -5,7 +5,7 @@ namespace MartiAdrogue\Http;
 use PHPUnit_Framework_TestCase;
 use MartiAdrogue\Http\Uri;
 use MartiAdrogue\Http\Exception\InvalidPortException;
-use MartiAdrogue\Http\UriComponent\Port;
+use MartiAdrogue\Http\Component\Uri\Port;
 
 /**
  * A port MUST have a valid value. If it isn't the case. SHOULD launch and
@@ -13,7 +13,7 @@ use MartiAdrogue\Http\UriComponent\Port;
  * wich it's porpose is handle URIs and decide if is going to use a port or
  * not depending on host and sheme standards.
  *
- * @covers MartiAdrogue\Http\UriComponent\Port::<!public>
+ * @covers MartiAdrogue\Http\Component\Uri\Port::<!public>
  * @uses MartiAdrogue\Http\Exception\InvalidPortException
  */
 class PortTest extends PHPUnit_Framework_TestCase
@@ -27,7 +27,7 @@ class PortTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\Http\UriComponent\Port::__construct
+     * @covers MartiAdrogue\Http\Component\Uri\Port::__construct
      */
     public function shouldLaunchAnExceptionWhenANoneNumericPortIsCreated()
     {
@@ -37,7 +37,7 @@ class PortTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\Http\UriComponent\Port::__construct
+     * @covers MartiAdrogue\Http\Component\Uri\Port::__construct
      */
     public function shouldLaunchAnExceptionWhenAPortLowerThanStandardRangIsCreated()
     {
@@ -47,7 +47,7 @@ class PortTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\Http\UriComponent\Port::__construct
+     * @covers MartiAdrogue\Http\Component\Uri\Port::__construct
      */
     public function shouldLaunchAnExceptionWhenAPortHiggerThanStandardRangIsCreated()
     {
@@ -57,8 +57,8 @@ class PortTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\Http\UriComponent\Port::__construct
-     * @covers MartiAdrogue\Http\UriComponent\Port::__toString
+     * @covers MartiAdrogue\Http\Component\Uri\Port::__construct
+     * @covers MartiAdrogue\Http\Component\Uri\Port::__toString
      */
     public function shouldReturnCurrentPort()
     {

@@ -9,14 +9,14 @@ use Psr\Http\Message\UriInterface;
 
 class Message implements Messageable
 {
-    private $protocolVersion;
+    const PROTOCOL_11 = '1.1';
+
     private $version;
     private $headers;
     private $body;
 
-    public function __construct($protocolVersion, $version, array $headers, StreamInterface $body)
+    public function __construct($version, array $headers, StreamInterface $body)
     {
-        $this->protocolVersion = $protocolVersion;
         $this->version = $version;
         $this->headers = $headers;
         $this->body = $body;
@@ -24,12 +24,12 @@ class Message implements Messageable
 
     public function getProtocolVersion()
     {
-        return $this->protocolVersion;
+        return $this->version;
     }
 
     public function withProtocolVersion($version)
     {
-        return $version;
+        return new self($version, $this->headers, $this->body);
     }
 
     public function getHeaders()
@@ -39,7 +39,7 @@ class Message implements Messageable
 
     public function hasHeader($name)
     {
-        return $name;
+        return array_key_exists($name, $this->headers);
     }
 
     public function getHeader($name)
@@ -49,7 +49,7 @@ class Message implements Messageable
 
     public function getHeaderLine($name)
     {
-        return $this->headers[$name];
+        return implode(', ', $this->getHeader($name));
     }
 
     public function withHeader($name, $value)
@@ -59,20 +59,31 @@ class Message implements Messageable
 
     public function withAddedHeader($name, $value)
     {
-        return [$name, $value];
+        $headers = $this->getHeaders();
+        $headers[$name] = $value;
+
+        return new self($this->version, $headers, $this->body);
     }
 
     public function withoutHeader($name)
     {
-        return $name;
+        if (!is_array($name)) {
+            $name = [$name];
+        }
+
+        $headers = $this->getHeaders();
+        $headersDifference = array_diff($headers, $name);
+
+        return new self($this->version, $headersDifference, $this->body);
     }
 
     public function getBody()
     {
         return $this->body;
     }
+
     public function withBody(StreamInterface $body)
     {
-        return $body;
+        return new self($this->version, $this->headers, $body);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace MartiAdrogue\Http\UriComponent;
+namespace MartiAdrogue\Http\Component\Uri;
 
 /**
  * The userinfo subcomponent may consist of a user name and, optionally,
