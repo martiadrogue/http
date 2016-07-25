@@ -10,6 +10,7 @@ use Psr\Http\Message\UriInterface;
 class Message implements Messageable
 {
     const PROTOCOL_11 = '1.1';
+    const PROTOCOL_10 = '1.0';
 
     private $version;
     private $headers;
