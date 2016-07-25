@@ -73,13 +73,10 @@ class MessageTest extends PHPUnit_Framework_TestCase
      */
     public function shouldReturnANewInstanceWithAnotherBody()
     {
-        $this->assertTrue(true);
-    }
-
-    /** @test */
-    public function shouldGetProtocolVersion()
-    {
-        $this->assertTrue(true);
+        $newBody = Mockery::mock('Psr\Http\Message\StreamInterface');
+        $newMessage = $this->message->withBody($newBody);
+        $this->assertNotSame($this->message, $newMessage, 'Method Message::withBody always returns a new instance of the same object.');
+        $this->assertEquals($newBody, $newMessage->getBody(), 'Method Message::withBody must return a new instance with Body asked.');
     }
 
     /**
