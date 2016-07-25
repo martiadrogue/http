@@ -32,7 +32,10 @@ class MessageTest extends PHPUnit_Framework_TestCase
      */
     public function shouldReturnANewInstanceWithAnotherProtocolVersion()
     {
-        $this->assertTrue(true);
+        $version = Message::PROTOCOL_10;
+        $newMessage = $this->message->withProtocolVersion($version);
+        $this->assertNotSame($this->message, $newMessage, 'Method Message::withProtocolVersion always returns a new instance of the same object.');
+        $this->assertEquals($version, $newMessage->getProtocolVersion(), 'Method Message::withProtocolVersion must return a new instance with protocol asked.');
     }
 
     /**
