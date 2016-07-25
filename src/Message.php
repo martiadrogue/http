@@ -100,5 +100,5 @@ class Message implements Messageable
         }
 
         return $value;
-     }
+    }
 }
