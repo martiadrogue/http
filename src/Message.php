@@ -67,7 +67,7 @@ class Message implements Messageable
         $value = $this->arrayify($value);
 
         $headers = $this->getHeaders();
-        $headers[$name] = $value;
+        $headers[$name] = array_merge($headers[$name], $value);
 
         return new self($this->version, $headers, $this->body);
     }
