@@ -55,7 +55,6 @@ class Message implements Messageable
     public function withHeader($name, $value)
     {
         $value = $this->arrayify($value);
-
         $headers = $this->getHeaders();
         $headers[$name] = $value;
 
@@ -65,7 +64,6 @@ class Message implements Messageable
     public function withAddedHeader($name, $value)
     {
         $value = $this->arrayify($value);
-
         $headers = $this->getHeaders();
         $headers[$name] = array_merge($headers[$name], $value);
 
@@ -77,7 +75,6 @@ class Message implements Messageable
 
         $headers = $this->getHeaders();
         $value = $headers[$name];
-
         $headersDifference = array_diff($headers, [$name => $value]);
 
         return new self($this->version, $headersDifference, $this->body);
