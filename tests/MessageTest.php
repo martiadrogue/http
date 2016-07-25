@@ -8,7 +8,7 @@ use Psr\Http\Message\StreamInterface;
 use MartiAdrogue\Http\Message;
 
 /**
- * @covers MartiAdrogue\Http\Uri::<!public>
+ * @covers MartiAdrogue\Http\Message::<!public>
  */
 class MessageTest extends PHPUnit_Framework_TestCase
 {
@@ -24,31 +24,50 @@ class MessageTest extends PHPUnit_Framework_TestCase
         $this->Message = new Message($version, $headers, $body);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::withProtocolVersion
+     * @covers MartiAdrogue\Http\Message::getProtocolVersion
+     */
     public function shouldReturnANewInstanceWithAnotherProtocolVersion()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldReturnANewInstanceWithAnotherHeader()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldReturnANewInstanceWithAddedHeader()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldReturnANewInstanceWithoutHeader()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::getBody
+     * @covers MartiAdrogue\Http\Message::withBody
+     */
     public function shouldReturnANewInstanceWithAnotherBody()
     {
         $this->assertTrue(true);
@@ -60,31 +79,46 @@ class MessageTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldGetHeaders()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldGetHeaderMappedToKey()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldGetHeaderLineMappedToKey()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldGetBody()
     {
         $this->assertTrue(true);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers MartiAdrogue\Http\Message::__construct
+     */
     public function shouldCheckIfHeaderWithRequiredKeyExists()
     {
         $this->assertTrue(true);
