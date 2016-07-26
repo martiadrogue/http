@@ -35,7 +35,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
         $version = Message::PROTOCOL_10;
         $newMessage = $this->message->withProtocolVersion($version);
         $this->assertNotSame($this->message, $newMessage, 'Method Message::withProtocolVersion always returns a new instance of the same object.');
-        $this->assertEquals($version, $newMessage->getProtocolVersion(), 'Method Message::withProtocolVersion must return a new instance with protocol asked.');
+        $this->assertEquals($version, $newMessage->getProtocolVersion(), 'Method Message::withProtocolVersion must return a new instance of MartiAdrogue\Http\Message::class with protocol asked.');
     }
 
     /**
@@ -76,7 +76,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
         $newBody = Mockery::mock('Psr\Http\Message\StreamInterface');
         $newMessage = $this->message->withBody($newBody);
         $this->assertNotSame($this->message, $newMessage, 'Method Message::withBody always returns a new instance of the same object.');
-        $this->assertEquals($newBody, $newMessage->getBody(), 'Method Message::withBody must return a new instance with Body asked.');
+        $this->assertEquals($newBody, $newMessage->getBody(), 'Method Message::withBody must return a new instance of MartiAdrogue\Http\Message::class with Body asked.');
     }
 
     /**
