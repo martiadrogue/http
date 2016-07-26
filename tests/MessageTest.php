@@ -18,7 +18,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $version = Message::PROTOCOL_11;
-        $headers = [];
+        $headers = ['foo' => ['boo']];
         $body = Mockery::mock('Psr\Http\Message\StreamInterface');
 
         $this->message = new Message($version, $headers, $body);
