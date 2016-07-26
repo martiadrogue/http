@@ -41,19 +41,34 @@ class MessageTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::withHeader
+     * @covers MartiAdrogue\Http\Message::getHeaders
+     * @covers MartiAdrogue\Http\Message::getHeader
      */
-    public function shouldReturnANewInstanceWithAnotherHeader()
+    public function shouldReturnANewInstanceWithNewHeader()
     {
-        $this->assertTrue(true);
+        $name = 'fizz';
+        $value = ['buzz'];
+        $newMessage = $this->message->withHeader($name, $value);
+        $this->assertNotSame($this->message, $newMessage, 'Method Message::withHeader always returns a new instance of the same object.');
+        $this->assertArrayHasKey($name, $newMessage->getHeaders(), 'Method Message::withHeader must return a new instance of MartiAdrogue\Http\Message::class with new key added.');
+        $this->assertEquals($value, $newMessage->getHeader($name), 'Method Message::withHeader must return a new instance of MartiAdrogue\Http\Message::class with correct value mapped to new key.');
     }
 
     /**
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::withAddedHeader
+     * @covers MartiAdrogue\Http\Message::getHeaders
+     * @covers MartiAdrogue\Http\Message::getHeader
      */
-    public function shouldReturnANewInstanceWithAddedHeader()
+    public function shouldReturnANewInstanceWithMergedHeader()
     {
-        $this->assertTrue(true);
+        $name = 'foo';
+        $valueToAdd = ['woof'];
+        $newMessage = $this->message->withAddedHeader($name, $valueToAdd);
+        $this->assertNotSame($this->message, $newMessage, 'Method Message::withAddedHeader always returns a new instance of the same object.');
+        $this->assertEquals(['boo','woof'], $newMessage->getHeader($name), 'Method Message::withAddedHeader must return a new instance of MartiAdrogue\Http\Message::class with header required merged.');
     }
 
     /**
