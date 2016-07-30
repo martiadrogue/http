@@ -13,17 +13,17 @@ PSR4 and PSR7. And it's reference is
 
 ## Install
 
-Via Composer, update your composer.json to use martiadrogue/:package_name
+Via Composer, update your composer.json to use martiadrogue/http
 
 ```json
 "repositories": [
     {
         "type": "git",
-        "url": "https://github.com/martiadrogue/:package_name.git"
+        "url": "https://github.com/martiadrogue/http.git"
     }
 ],
 "require": {
-    "martiadrogue/:package_name": "dev-devel"
+    "martiadrogue/http": "dev-devel"
 },
 ```
 
