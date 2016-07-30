@@ -102,15 +102,6 @@ class MessageTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
-     */
-    public function shouldGetHeaderMappedToKey()
-    {
-        $this->assertTrue(true);
-    }
-
-    /**
-     * @test
-     * @covers MartiAdrogue\Http\Message::__construct
      * @covers MartiAdrogue\Http\Message::getHeaderLine
      */
     public function shouldGetHeaderLineMappedToKey()
