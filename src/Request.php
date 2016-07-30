@@ -7,7 +7,7 @@ use MartiAdrogue\Http\Behaviour\Requestable;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\StreamInterface;
 
-class Request implements Requestable
+class Request extends Message implements Requestable
 {
     private $version;
     private $getParameters;
@@ -51,64 +51,6 @@ class Request implements Requestable
     public function withUri(UriInterface $uri, $preserveHost = false)
     {
         return [$uri, $preserveHost];
-    }
-
-    public function hasHeader($name)
-    {
-        return $name;
-    }
-
-    public function getHeader($name)
-    {
-        return $name;
-    }
-
-    public function getHeaderLine($name)
-    {
-        return $name;
-    }
-
-    public function withHeader($name, $value)
-    {
-        return [$name, $value];
-    }
-
-    public function withAddedHeader($name, $value)
-    {
-        return [$name, $value];
-    }
-
-    public function withoutHeader($name)
-    {
-        return $name;
-    }
-
-    public function getBody()
-    {
-        return;
-    }
-
-    public function withBody(StreamInterface $body)
-    {
-        return $body;
-    }
-
-    public function getProtocolVersion()
-    {
-        return $this->version;
-    }
-
-    public function withProtocolVersion($version)
-    {
-        return new self($version, $this->get, $this->post, $this->cookies, $this->files, $this->server);
-    }
-
-    public function getHeaders()
-    {
-        return [
-                'HTTP_ACCEPT' => $this->getServerVariable('HTTP_ACCEPT'),
-                'HTTP_USER_AGENT' => $this->getServerVariable('HTTP_USER_AGENT'),
-            ];
     }
 
     /**
