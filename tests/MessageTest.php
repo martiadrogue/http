@@ -103,15 +103,6 @@ class MessageTest extends PHPUnit_Framework_TestCase
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
      */
-    public function shouldGetHeaders()
-    {
-        $this->assertTrue(true);
-    }
-
-    /**
-     * @test
-     * @covers MartiAdrogue\Http\Message::__construct
-     */
     public function shouldGetHeaderMappedToKey()
     {
         $this->assertTrue(true);
@@ -122,15 +113,6 @@ class MessageTest extends PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\Http\Message::__construct
      */
     public function shouldGetHeaderLineMappedToKey()
-    {
-        $this->assertTrue(true);
-    }
-
-    /**
-     * @test
-     * @covers MartiAdrogue\Http\Message::__construct
-     */
-    public function shouldGetBody()
     {
         $this->assertTrue(true);
     }
