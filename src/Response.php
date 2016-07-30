@@ -2,7 +2,7 @@
 
 namespace MartiAdrogue\Http;
 
-class Response
+class Response extends Message
 {
     private $version;
     private $statusCode;
