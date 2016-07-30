@@ -111,6 +111,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::getHeaderLine
      */
     public function shouldGetHeaderLineMappedToKey()
     {
@@ -120,10 +121,12 @@ class MessageTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::hasHeader
      */
-    public function shouldCheckIfHeaderWithRequiredKeyExists()
+    public function shouldCheckIfRequiredHeadersKeyExists()
     {
-        $this->assertTrue(true);
+        $result = $this->message->hasHeader('lorem_ipsum');
+        $this->assertFalse($result);
     }
 
     public function tearDown()
