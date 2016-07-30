@@ -74,10 +74,15 @@ class MessageTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
+     * @covers MartiAdrogue\Http\Message::withoutHeader
+     * @covers MartiAdrogue\Http\Message::getHeaders
      */
     public function shouldReturnANewInstanceWithoutHeader()
     {
-        $this->assertTrue(true);
+        $name = 'foo';
+        $newMessage = $this->message->withoutHeader($name);
+        $this->assertNotSame($this->message, $newMessage, 'Method Message::withoutHeader always returns a new instance of the same object.');
+        $this->assertEquals([], $newMessage->getHeaders(), 'Method Message::withoutHeader must return a new instance of MartiAdrogue\Http\Message::class with header required merged.');
     }
 
     /**

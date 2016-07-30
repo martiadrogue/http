@@ -73,12 +73,10 @@ class Message implements Messageable
 
     public function withoutHeader($name)
     {
-
         $headers = $this->getHeaders();
-        $value = $headers[$name];
-        $headersDifference = array_diff($headers, [$name => $value]);
+        unset($headers[$name]);
 
-        return new self($this->version, $headersDifference, $this->body);
+        return new self($this->version, $headers, $this->body);
     }
 
     public function getBody()
