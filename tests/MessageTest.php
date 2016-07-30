@@ -103,10 +103,12 @@ class MessageTest extends PHPUnit_Framework_TestCase
      * @test
      * @covers MartiAdrogue\Http\Message::__construct
      * @covers MartiAdrogue\Http\Message::getHeaderLine
+     * @covers MartiAdrogue\Http\Message::getHeader
      */
     public function shouldGetHeaderLineMappedToKey()
     {
-        $this->assertTrue(true);
+        $header = $this->message->getHeaderLine('foo');
+        $this->assertEquals('boo', $header, 'Method Message::getHeaderLine must return header asked in string format.');
     }
 
     /**
