@@ -119,7 +119,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     public function shouldCheckIfRequiredHeadersKeyExists()
     {
         $result = $this->message->hasHeader('lorem_ipsum');
-        $this->assertFalse($resul, 'Method Message::getHeaderLine must return false if key doesn\'t exit');
+        $this->assertFalse($result, 'Method Message::getHeaderLine must return false if key doesn\'t exit.');
     }
 
     public function tearDown()
